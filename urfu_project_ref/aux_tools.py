@@ -28,7 +28,7 @@ def add_palette_for_1ch_img(path,
         im = Image.open(img.path)
         ar = np.array(im)
         ar = np.vectorize(palette_dict.get)(ar)
-        im = Image.fromarray(ar, mode='L').convert('P')
+        im = Image.fromarray(ar).convert('P')
         im.putpalette(np.array(palette, dtype=np.uint8))
         im.save(img.path.rstrip(pic_suffix) + '.png')
 
